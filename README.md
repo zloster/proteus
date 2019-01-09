@@ -4,7 +4,8 @@
 An extremely __lightweight, flexible, and high performance__ [Undertow](http://undertow.io) based Java framework for developing RESTful web applications and microservices.
 
 - __NO MAGIC__
-- Lightweight: limited dependencies and < 340kb
+- Incredibly easy to use and get started
+- Limited dependencies and < 340kb
 - JAX-RS compliant
 - Easy on the developer and the metal
 - Blazing fast!!!
@@ -157,7 +158,7 @@ If the response object's `contentType` is not explicitly set, the `@Produces` an
 For methods that should return a `String` or `ByteBuffer` to the client users can create responses like this:
  ```java
   ...
-  import  static io.sinistral.proteus.server.ServerResponse.response;
+  import static io.sinistral.proteus.server.ServerResponse.response;
   ...
 @GET
 @Path("/hello-world")
@@ -173,7 +174,7 @@ By default, passing a `String` to the static `ServerResponse.response` helper fu
 For other types of responses the following demonstrates the preferred style:
 ```java
   ...
-  import  static io.sinistral.proteus.server.ServerResponse.response;
+  import static io.sinistral.proteus.server.ServerResponse.response;
   ...
 @GET
 @Path("/world")
@@ -189,7 +190,7 @@ The entity can be set separately as well:
 
 ```java
   ...
-  import  static io.sinistral.proteus.server.ServerResponse.response;
+  import static io.sinistral.proteus.server.ServerResponse.response;
   ...
 @GET
 @Path("/world")
@@ -205,7 +206,7 @@ public ServerResponse getWorld(Integer id,  Integer randomNumber )
 
 ```java
   ...
-  import  static io.sinistral.proteus.server.ServerResponse.response;
+  import static io.sinistral.proteus.server.ServerResponse.response;
   ...
 @GET
 @Path("/future/user")
@@ -220,7 +221,7 @@ In this case a handler will be generated with the following source code:
 
 ```java
   ...
-  import  static io.sinistral.proteus.server.ServerResponse.response;
+  import static io.sinistral.proteus.server.ServerResponse.response;
   ...
 public void handleRequest(final io.undertow.server.HttpServerExchange exchange) throws java.lang.Exception { 
     CompletableFuture<ServerResponse<User>> response = examplesController.futureUser();
