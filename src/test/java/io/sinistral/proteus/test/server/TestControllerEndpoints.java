@@ -526,6 +526,54 @@ public class TestControllerEndpoints
 
 	}
 	
+	@Test
+	public void responsePathParam()
+	{
+
+		String pathParam = "samplePathParam";
+
+		Map<String, Object> map = given()
+
+				
+				
+				.accept(ContentType.JSON)
+
+				.contentType("application/json")
+
+				.when()
+
+				.get("tests/response/parameters/path/" + pathParam)
+
+				.as(Map.class);
+
+		assertThat((map.get("pathLong").toString()), CoreMatchers.is(pathParam));
+
+	}
+
+	@Test
+	public void responsePathParamRegEx()
+	{
+
+		String pathParam = "1";
+
+		Map<String, Object> map = given()
+
+				
+				
+				.accept(ContentType.JSON)
+
+				.contentType("application/json")
+
+				.when()
+
+				.get("tests/response/parameters/pathregex/" + pathParam)
+
+				.as(Map.class);
+
+		assertThat((map.get("pathLong").toString()), CoreMatchers.is(pathParam));
+
+	}
+	
 	@After
 	public void tearDown()
 	{
